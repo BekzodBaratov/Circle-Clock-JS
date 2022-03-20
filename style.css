@@ -1,0 +1,105 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+html {
+  font-size: 62.5%;
+}
+
+:root {
+  --dark-white-color: #ddd;
+  --dark-white-opocity-color: #ddd6;
+  --white-color: #fff;
+  --shadow-color: #fff4;
+  --dark-brown-color: #b33;
+  --dark-bac-color: #272727;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  background-color: var(--dark-bac-color);
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+label {
+  color: var(--dark-white-color);
+  text-decoration: none;
+  font-size: 3rem;
+  background-color: var(--dark-brown-color);
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  letter-spacing: 1px;
+  box-shadow: 0 0.5rem 1rem var(--dark-brown-color);
+}
+input {
+  display: none;
+}
+.clock {
+  position: relative;
+  margin-top: 5rem;
+  background-color: var(--dark-white-opocity-color);
+  height: 38rem;
+  width: 38rem;
+  border-radius: 50%;
+  border: 10px solid var(--dark-white-opocity-color);
+  outline: 1rem;
+  position: relative;
+}
+.clock::after {
+  content: "";
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: var(--white-color);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.507);
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 11;
+}
+.line {
+  --rotation: 0;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+
+  width: 1rem;
+  height: 50%;
+  border-radius: 1rem;
+  background-color: transparent;
+  border: 3px solid var(--white-color);
+  box-shadow: 0 0 1rem var(--shadow-color);
+  transform-origin: bottom;
+}
+.second {
+  background-color: red;
+  border: 3px solid var(--dark-white-opocity-color);
+  width: 0.4rem;
+  height: 50%;
+  z-index: 10;
+}
+.hour {
+  width: 1.4rem;
+  height: 35%;
+}
+.minute {
+  height: 45%;
+}
+.weekday {
+  margin-top: 5rem;
+  font-size: 3rem;
+  color: var(--white-color);
+  text-shadow: 0 0 1rem var(--dark-white-opocity-color);
+}
